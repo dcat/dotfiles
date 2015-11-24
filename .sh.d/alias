@@ -1,0 +1,17 @@
+alias ls='colorls -Glh'
+alias la='colorls -GAlh'
+alias ll='colorls -GalhF'
+
+alias l=less\ -R
+alias j=jobs
+alias p=pwd
+
+# logs
+alias @messages='log < /var/log/messages'
+alias @daemon='log < /var/log/daemon'
+
+alias news=newsbeuter
+alias less='less -R'
+
+alias p.iotek.org='curl -sLT- p.iotek.org'
+

@@ -1,0 +1,25 @@
+PRINT='echo -n'
+[ `$PRINT | wc -c` -ne 0 ] && PRINT=printf
+PS1='$(_prompt) '
+
+_prompt() {
+	case $? in
+	# EXIT_SUCCESS or ^C
+	0|130)
+		RET=240
+		;;
+	# command not found
+	127)
+		RET=196
+		;;
+	*)
+		RET=202
+		;;
+	esac
+
+	RET="[38;5;${RET}m"
+	RET="${RET}─[0m "
+
+	$PRINT $RET
+}
+

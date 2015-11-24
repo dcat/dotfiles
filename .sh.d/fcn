@@ -1,0 +1,9 @@
+profile_export() {
+	for NAME in `grep '^.*=' < .profile | cut -d= -f1`
+	do
+		export ${NAME}
+	done
+}
+
+profile_export
+

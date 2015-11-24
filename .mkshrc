@@ -1,0 +1,16 @@
+# $dotfiles: dot.mkshrc,v 1.0 2015/09/28 00:00:00 dcat Exp $
+
+[ -o login ] && . $HOME/.profile
+. $HOME/.sh.d/fcn
+. $HOME/.sh.d/alias
+. $HOME/.sh.d/style
+
+
+HISTFILE=$HOME/.sh.d/.history
+HISTSIZE=512
+CDPATH=.:$HOME:/
+
+bind ^[a=beginning-of-line
+bind ^[e=end-of-line
+bind ^L=clear-screen
+
