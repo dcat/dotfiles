@@ -1,3 +1,5 @@
+# $dotfiles: style, v 1.0  2016/03/11 00:56:50 dcat Exp $
+
 PRINT='echo -n'
 [ `$PRINT | wc -c` -ne 0 ] && PRINT=printf
 PS1='$(_prompt) '

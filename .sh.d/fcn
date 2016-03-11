@@ -1,9 +1,18 @@
-profile_export() {
-	for NAME in `grep '^.*=' < .profile | cut -d= -f1`
+# $dotfiles: fcn, v 1.0  2016/03/11 00:56:12 dcat Exp $
+
+_spin() {
+	tput civis
+	tput bold
+	for _ in `seq 6`
 	do
-		export ${NAME}
+		for c in '|' '/' '-' '\' '|' '/' '-' '\'
+		do
+			printf "$c"
+			sleep .04   # XXX not POSIX
+			printf "\b"
+		done
 	done
+
+	tput reset
+	echo learn to use ^L you dummy
 }
-
-profile_export
-
