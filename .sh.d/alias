@@ -2,26 +2,43 @@
 
 LS=ls
 
-alias ls="$LS -lh"
+alias ls="$LS -1F"
 alias la="$LS -Alh"
 alias ll="$LS -alhF"
 
+alias ~='cd'
+alias -- -='cd -'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 alias pg=$PAGER
 alias vi=$VISUAL
+alias db=$DEBUGGER
+alias cc=$CC
+alias trace=$TRACER
 alias j=jobs
+alias h=history
 alias b=bg
 alias f=fg
 alias p=pwd
+alias u=whoami
+alias Z=exit
 alias ,="$LS -1"
 
 # logs
-alias @messages='pplog < /var/log/messages'
-alias @daemon='pplog < /var/log/daemon'
+alias @messages="vim /var/log/messages +$"
+alias @authlog="vim -c 'set ft=messages' /var/log/authlog +$"
+alias @daemon="vim /var/log/daemon +$"
+alias @secure="doas vim -c 'set ft=messages' /var/log/secure +$"
 
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
+alias hex2dec="printf '%d\n'"
+alias dec2hex="printf '0x%x\n'"
+alias bell='tput bel'
 alias p.iotek.org='curl -sLT- p.iotek.org'
 
 # don't laugh
 alias vis='cat -v'
-alias clear=_spin
+#alias clear=_spin
 

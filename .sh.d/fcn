@@ -1,18 +1,24 @@
 # $dotfiles: fcn, v 1.0  2016/03/11 00:56:12 dcat Exp $
+#
 
-_spin() {
-	tput civis
-	tput bold
-	for _ in `seq 6`
-	do
-		for c in '|' '/' '-' '\' '|' '/' '-' '\'
-		do
-			printf "$c"
-			sleep .04   # XXX not POSIX
-			printf "\b"
-		done
-	done
+# horizontal line
+hr() {
+	jot -b '═' -s '' `tput cols`
+}
 
-	tput reset
-	echo learn to use ^L you dummy
+# set back-, or foreground color
+color() {
+	[ -z "$1" ] && return 1
+
+	case "$1$2" in
+	*[!0-9]*)
+		echo usage: $0 '<fg>' '[bg]'
+		return 1
+		;;
+	esac
+
+	printf '\033[38;5;%dm' $1
+	[ -n "$2" ] && printf '\033[48;5;%dm' $2
+
+	return 0
 }
