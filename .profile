@@ -4,7 +4,7 @@ LC_CTYPE=en_US.UTF-8
 TZ=Europe/Oslo
 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
-PATH=$PATH:/usr/X11R6/bin
+PATH=$PATH:/usr/X11R6/bin:/usr/games
 GOPATH=$HOME/.go
 XDG_DATA_HOME=$HOME/.config
 MAIL=/var/mail/dcat
