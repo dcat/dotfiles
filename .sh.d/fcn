@@ -1,24 +1,44 @@
 # $dotfiles: fcn, v 1.0  2016/03/11 00:56:12 dcat Exp $
 #
 
+# set graphics rendition
+sgr() {
+	printf '\033[%s' "$@"
+}
+
+# 0 (reset) term attributes
+sgr0() {
+	sgr 0m
+}
+
+# cursor position
+cup() {
+	sgr "${2};${1}H"
+}
+
+# set foreground color
+setfg() {
+	[ "$1" -lt 16 ] && sgr "3${1}m" || sgr "38;5;${1}m"
+}
+
+# set background color
+setbg() {
+	[ "$1" -lt 16 ] && sgr "4${1}m" || sgr "48;5;${1}m"
+}
+
 # horizontal line
 hr() {
 	jot -b '═' -s '' `tput cols`
 }
 
-# set back-, or foreground color
-color() {
-	[ -z "$1" ] && return 1
-
-	case "$1$2" in
-	*[!0-9]*)
-		echo usage: $0 '<fg>' '[bg]'
-		return 1
-		;;
-	esac
-
-	printf '\033[38;5;%dm' $1
-	[ -n "$2" ] && printf '\033[48;5;%dm' $2
-
-	return 0
+# draw a space character for every cell in a box (you need to setbg to see it)
+box() {
+	jot - $1 $3 1 | while read X
+	do
+		jot - $2 $4 1 | while read Y
+		do
+			cup $X $Y
+			printf ' '
+		done
+	done
 }

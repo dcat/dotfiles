@@ -7,7 +7,7 @@
 
 
 HISTFILE=$HOME/.sh.d/.history
-HISTSIZE=512
+HISTSIZE=4096
 CDPATH=.:$HOME:/
 
 bind ^[a=beginning-of-line

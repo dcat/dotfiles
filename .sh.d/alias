@@ -13,7 +13,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias pg=$PAGER
-alias vi=$VISUAL
 alias db=$DEBUGGER
 alias cc=$CC
 alias trace=$TRACER
@@ -40,5 +39,4 @@ alias p.iotek.org='curl -sLT- p.iotek.org'
 
 # don't laugh
 alias vis='cat -v'
-#alias clear=_spin
 
